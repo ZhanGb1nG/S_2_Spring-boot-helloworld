@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<!--
+    ${...} ：变量表达式。支持方法调用。
+    *{...} ：选择表达式。
+    #{...} ：消息（i18n）表达式。
+    @{...} ：链接（URL）表达式。
+    ~{...} ：片段表达式。
+    指令：
+    1、th:text，输出文本内容，出于安全考虑，会把表达式读取到的值进行处理，防止html的注入
+    2、th:utext，输出原始内容，不进行格式化输出
+    3、th:object，自定义变量，省去变量名
+-->
+模板引擎整合thymeleaf admin/info.html
+<div th:object="${setting}">
+    <!--th:text-->
+    <h5 th:text="${setting.name.toUpperCase()}">测试内容</h5>
+    <h5 th:text="*{name}">测试内容</h5>
+    <h5 th:utext="*{domain}">测试内容</h5>
+    <li th:text="${#dates.format(data, 'yyyy-MM-dd')}">测试内容</li>
+    <li th:text="${8+2}">测试内容</li>
+    <li th:text="ceshi">测试内容</li>
+    <li th:text="|欢迎*{name}|">测试</li>
+    <li th:if="true">测试if=true</li>
+    <ui th:each="t : ${test}">
+        <li th:text="${t}"></li>
+    </ui>
+</div>
+</body>
+</html>
