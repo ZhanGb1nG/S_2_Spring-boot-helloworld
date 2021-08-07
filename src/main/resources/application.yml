@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /zhangbingbing
+spring:
+  profiles:
+    active: dev
+---
+# 开发环境配置
+spring:
+  profiles: dev
+server:
+  port: 8080
+---
+# 生产环境配置
+spring:
+  profiles: prod
+server:
+  port: 8082

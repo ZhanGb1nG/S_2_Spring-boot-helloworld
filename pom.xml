@@ -5,12 +5,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.6.RELEASE</version>
+        <version>2.0.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
     <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
 
@@ -38,13 +39,33 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.3.1-2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+<!--            只在编译或测试的时候使用-->
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
+<!--        指定打包的文件名-->
+        <finalName>zhangbingbingspringboot</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+<!--                当存在多个mainclass时，指定主启动类-->
+                <configuration>
+                    <mainClass>com.example.demo.DemoApplication</mainClass>
+                </configuration>
+                <goals>
+                    <goal>repackage</goal>
+                </goals>
             </plugin>
         </plugins>
     </build>
