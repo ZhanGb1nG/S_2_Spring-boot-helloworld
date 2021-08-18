@@ -59,4 +59,14 @@ public class MyExceptionHandler {
         httpServletRequest.setAttribute("ext", map);
         return "forward:/error";
     }
+
+    @ExceptionHandler(value = UserNotFoundException.class)
+    public String userNotFoundHandler(UserNotFoundException ex, HttpServletRequest httpServletRequest) {
+        Map<String, Object> map = new HashMap<>(8);
+        map.put("code", "user.notexist");
+        map.put("errorMsg", ex.getMessage());
+        httpServletRequest.setAttribute("javax.servlet.error.status_code", 404);
+        httpServletRequest.setAttribute("ext", map);
+        return "forward:/error";
+    }
 }

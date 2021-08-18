@@ -1,9 +1,13 @@
 package com.example.demo.controller;
 
+import com.example.demo.Exceptions.MyException;
+import com.example.demo.Exceptions.UserNotFoundException;
+import com.example.demo.config.PersonConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,5 +33,27 @@ public class HelloController {
         map.put("user", "lisi");
 
         return map;
+    }
+
+    @Autowired
+    private PersonConfig person;
+
+    @RequestMapping("/person")
+    public Object getPerson() {
+        System.out.println("person:" + person.toString());
+        return person.toString();
+    }
+
+    @RequestMapping("/test/error")
+    public String textError() {
+        throw new MyException(100, "异常测试");
+    }
+
+    @RequestMapping("/test/user")
+    public String getUser(@RequestParam("user") String username) {
+        if (!username.equalsIgnoreCase("zhangsan")) {
+            throw new UserNotFoundException();
+        }
+        return "hello zhangsan";
     }
 }

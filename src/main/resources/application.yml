@@ -2,9 +2,26 @@ server:
   port: 8080
   servlet:
     context-path: /zhangbingbing
+  error:
+    include-exception: true
+    include-stacktrace: always
 spring:
   profiles:
     active: dev
+person:
+  name: zhangsan
+  age: 18
+  sex: 男
+  birthDate: 1991/01/01
+  pets: [cat,dog,pig]
+  cars:
+    - dazhao
+    - audi
+    - jieda
+  maps: {k1: v1,k2: v2}
+  girlfriend:
+    name: xiaohao
+    age: 18
 ---
 # 开发环境配置
 spring:
@@ -17,3 +34,5 @@ spring:
   profiles: prod
 server:
   port: 8082
+
+
