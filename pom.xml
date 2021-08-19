@@ -47,7 +47,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-<!--            只在编译或测试的时候使用-->
+            <!--            只在编译或测试的时候使用-->
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -60,27 +60,34 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-<!--        redis引入-->
+
+        <!--                SSM整合redis引入-->
+        <!--                <dependency>-->
+        <!--                    <groupId>org.springframework.data</groupId>-->
+        <!--                    <artifactId>spring-data-redis</artifactId>-->
+        <!--                    <version>2.0.9.RELEASE</version>-->
+        <!--                </dependency>-->
+        <!--                <dependency>-->
+        <!--                    <groupId>redis.clients</groupId>-->
+        <!--                    <artifactId>jedis</artifactId>-->
+        <!--                    <version>2.9.0</version>-->
+        <!--                </dependency>-->
+
+        <!--        springboot引入redis-->
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-redis</artifactId>
-            <version>2.0.9.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>2.9.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
     </dependencies>
 
     <build>
-<!--        指定打包的文件名-->
+        <!--        指定打包的文件名-->
         <finalName>zhangbingbingspringboot</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-<!--                当存在多个mainclass时，指定主启动类-->
+                <!--                当存在多个mainclass时，指定主启动类-->
                 <configuration>
                     <mainClass>com.example.demo.DemoApplication</mainClass>
                 </configuration>

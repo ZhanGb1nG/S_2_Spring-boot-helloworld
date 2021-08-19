@@ -8,7 +8,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-@ImportResource(locations = "classpath:beans.xml")
+// SSM整合导入使用
+//@ImportResource(locations = "classpath:beans.xml")
 @ServletComponentScan
 public class DemoApplication extends SpringBootServletInitializer {
 
