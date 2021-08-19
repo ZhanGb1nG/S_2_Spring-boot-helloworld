@@ -5,8 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
+@ImportResource(locations = "classpath:beans.xml")
 @ServletComponentScan
 public class DemoApplication extends SpringBootServletInitializer {
 
