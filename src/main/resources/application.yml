@@ -12,6 +12,12 @@ spring:
     host: 127.0.0.1
     port: 6379
     password:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/mall?useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+#    type: com.alibaba.druid.pool.DruidDataSource
 person:
   name: zhangsan
   age: 18
