@@ -142,7 +142,7 @@ public class HelloController {
     private JdbcTemplate jdbcTemplate;
 
     /**
-     * 测试druid数据源数据
+     * 测试druid数据源数据1
      * http://localhost:8080/zhangbingbing/test/jdbc
      * 
      * @param 
