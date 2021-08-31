@@ -107,10 +107,16 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
         </dependency>
+        <!--mybatis引入-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>
-        <!--        指定打包的文件名-->
+        <!--                指定打包的文件名-->
         <finalName>zhangbingbingspringboot</finalName>
         <plugins>
             <plugin>
