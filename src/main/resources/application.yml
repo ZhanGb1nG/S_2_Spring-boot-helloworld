@@ -8,6 +8,11 @@ server:
 spring:
   profiles:
     active: dev
+  #配置mybatis
+  mybatis:
+    configuration:
+      map-underscore-to-camel-case: true  开启驼峰命名
+    mapper-locations: classpath:/mybatis/mapper/*.xml  指定配置文件的位置
   redis:
     host: 127.0.0.1
     port: 6379
