@@ -17,6 +17,16 @@ spring:
     host: 127.0.0.1
     port: 6379
     password:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    virtual-host: /mall
+    username: mall
+    password: mall
+    connection-timeout: 5000
+    template:
+      ##设置为true 那么不可达消息会交给RetrunConfirm 处理，若设置为false  消息队列直接删除该消息
+      mandatory: true
   datasource:
 #    username: root
 #    password: root
