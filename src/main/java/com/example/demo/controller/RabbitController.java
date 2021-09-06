@@ -22,6 +22,7 @@ public class RabbitController {
 
     /**
      * 简单模式
+     * http://localhost:8080/zhangbingbing/rabbit/simple
      *
      * @param
      * @return com.example.demo.common.api.CommonResult
@@ -40,6 +41,7 @@ public class RabbitController {
 
     /**
      * 工作模式
+     * http://localhost:8080/zhangbingbing/rabbit/work
      *
      * @param
      * @return com.example.demo.common.api.CommonResult
