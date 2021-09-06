@@ -5,7 +5,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * 发布订阅模式发送者
+ * 通配符发送者
  *
  * @Author ZhanG_b1nG
  * @Date 2021/9/6 10:02

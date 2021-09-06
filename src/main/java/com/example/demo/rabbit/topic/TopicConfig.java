@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.listener.Topic;
 
 /**
- * 发布订阅模式配置类
+ * 通配符模式配置类
  *
  * @Author ZhanG_b1nG
  * @Date 2021/9/6 10:35

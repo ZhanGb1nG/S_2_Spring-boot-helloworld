@@ -62,7 +62,7 @@ public class RabbitController {
     private TopicSender topicSender;
 
     /**
-     * 发布订阅模式
+     * 通配符
      * http://localhost:8080/zhangbingbing/rabbit/topic
      *
      * @param

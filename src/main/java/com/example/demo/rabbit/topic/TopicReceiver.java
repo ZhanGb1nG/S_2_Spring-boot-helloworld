@@ -6,7 +6,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.util.StopWatch;
 
 /**
- * 发布订阅模式接收者
+ * 通配符接收者
  *
  * @Author ZhanG_b1nG
  * @Date 2021/9/6 10:26
