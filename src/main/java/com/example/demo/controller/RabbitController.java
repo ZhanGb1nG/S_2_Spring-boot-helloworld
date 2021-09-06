@@ -1,12 +1,15 @@
 package com.example.demo.controller;
 
 import com.example.demo.common.api.CommonResult;
+import com.example.demo.rabbit.direct.DirectSender;
+import com.example.demo.rabbit.fanout.FanoutSender;
 import com.example.demo.rabbit.simple.SimpleSender;
 import com.example.demo.rabbit.topic.TopicSender;
 import com.example.demo.rabbit.work.WorkSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -62,7 +65,7 @@ public class RabbitController {
     private TopicSender topicSender;
 
     /**
-     * 通配符
+     * 通配符模式
      * http://localhost:8080/zhangbingbing/rabbit/topic
      *
      * @param
@@ -75,6 +78,48 @@ public class RabbitController {
     public CommonResult topic() {
         for (int i = 0; i < 10; i++) {
             topicSender.send(i);
+        }
+        return CommonResult.success(null);
+    }
+
+    @Autowired
+    private FanoutSender fanoutSender;
+
+    /**
+     * 发布订阅模式
+     * http://localhost:8080/zhangbingbing/rabbit/fanout
+     *
+     * @param
+     * @return com.example.demo.common.api.CommonResult
+     * @Author ZhanG_b1nG
+     * @Date 2021/9/6 13:03
+     */
+    @RequestMapping(value = "/fanout", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult fanout() {
+        for (int i = 0; i < 10; i++) {
+            fanoutSender.sendMessage(i);
+        }
+        return CommonResult.success(null);
+    }
+
+    @Autowired
+    private DirectSender directSender;
+
+    /**
+     * 路由模式
+     * http://localhost:8080/zhangbingbing/rabbit/direct
+     *
+     * @param
+     * @return com.example.demo.common.api.CommonResult
+     * @Author ZhanG_b1nG
+     * @Date 2021/9/6 15:04
+     */
+    @RequestMapping(value = "/direct", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult direct() {
+        for (int i = 0; i < 10; i++) {
+            directSender.sendMessage(i);
         }
         return CommonResult.success(null);
     }
