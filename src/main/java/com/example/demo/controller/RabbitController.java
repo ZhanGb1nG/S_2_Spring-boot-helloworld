@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.common.api.CommonResult;
 import com.example.demo.rabbit.simple.SimpleSender;
+import com.example.demo.rabbit.topic.TopicSender;
 import com.example.demo.rabbit.work.WorkSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,6 +54,27 @@ public class RabbitController {
     public CommonResult work() {
         for (int i = 0; i < 10; i++) {
             workSender.sendMessage(i);
+        }
+        return CommonResult.success(null);
+    }
+
+    @Autowired
+    private TopicSender topicSender;
+
+    /**
+     * 发布订阅模式
+     * http://localhost:8080/zhangbingbing/rabbit/topic
+     *
+     * @param
+     * @return com.example.demo.common.api.CommonResult
+     * @Author ZhanG_b1nG
+     * @Date 2021/9/6 11:02
+     */
+    @RequestMapping("/topic")
+    @ResponseBody
+    public CommonResult topic() {
+        for (int i = 0; i < 10; i++) {
+            topicSender.send(i);
         }
         return CommonResult.success(null);
     }
