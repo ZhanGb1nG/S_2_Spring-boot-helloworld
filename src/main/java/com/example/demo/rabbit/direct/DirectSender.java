@@ -1,7 +1,9 @@
 package com.example.demo.rabbit.direct;
 
+import cn.hutool.core.lang.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -25,8 +27,9 @@ public class DirectSender {
         builder.append(key).append(' ');
         builder.append(index + 1);
         String message = builder.toString();
-        rabbitTemplate.convertAndSend(DirectConfig.DIRECT_EXCHANGE_HELLO, key, message);
-        log.info(" [x] Sent '{}'", message);
+        UUID uuid = UUID.randomUUID();
+        rabbitTemplate.convertAndSend(DirectConfig.DIRECT_EXCHANGE_HELLO, key, message, new CorrelationData(uuid.toString()));
+        log.info(" [x] Sent '{}', uuid: {}", message, uuid.toString());
     }
 
 }

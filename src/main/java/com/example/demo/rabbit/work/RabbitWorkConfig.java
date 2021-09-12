@@ -14,12 +14,6 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 public class RabbitWorkConfig {
-
-    @Bean
-    public Jackson2JsonMessageConverter messageConverter() {
-        return new Jackson2JsonMessageConverter();
-    }
-
     @Bean
     public Queue queue() {
         return new Queue(WorkSender.WORK_QUEUE);

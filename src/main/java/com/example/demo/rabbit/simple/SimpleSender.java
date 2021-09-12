@@ -1,5 +1,6 @@
 package com.example.demo.rabbit.simple;
 
+import cn.hutool.core.lang.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -23,6 +24,7 @@ public class SimpleSender {
     public void sendMessage() {
         log.info("rabbit.simple.SimpleSender.sendMessage start");
         String message = "Simple Sender: hello!";
+        UUID uuid = UUID.randomUUID();
         // routingKey为SIMPLE_QUEUQ
         rabbitTemplate.convertAndSend(SIMPLE_QUEUQ_HELLO, message);
         log.info(" [x] Sent '{}'", message);

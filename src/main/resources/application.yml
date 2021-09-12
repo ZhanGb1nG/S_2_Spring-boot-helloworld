@@ -27,6 +27,16 @@ spring:
     template:
       ##设置为true 那么不可达消息会交给RetrunConfirm 处理，若设置为false  消息队列直接删除该消息
       mandatory: true
+      retry:
+        enabled: true
+        max-attempts: 3
+        initial-interval: 1000ms
+    publisher-confirms: true #发布者消息确认
+    publisher-returns: true #发布者消息回调
+    publisher-confirm-type: correlated
+    listener:
+      direct:
+        acknowledge-mode: manual #开启手动确认消息
   datasource:
 #    username: root
 #    password: root
