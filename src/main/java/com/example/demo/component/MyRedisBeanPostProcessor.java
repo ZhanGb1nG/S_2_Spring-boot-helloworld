@@ -31,7 +31,16 @@ public class MyRedisBeanPostProcessor implements BeanPostProcessor {
         if (bean instanceof RedisTemplate) {
             RedisTemplate redisTemplate = (RedisTemplate) bean;
             redisTemplate.setDefaultSerializer(new Jackson2JsonRedisSerializer<Object>(Object.class));
+            System.out.println("实现BeanPostProcessor，重写postProcessBeforeInitialization方法");
             return redisTemplate;
+        }
+        return bean;
+    }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        if (bean instanceof RedisTemplate) {
+            System.out.println("实现BeanPostProcessor，重写postProcessAfterInitialization方法");
         }
         return bean;
     }
