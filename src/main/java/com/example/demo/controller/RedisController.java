@@ -24,6 +24,6 @@ public class RedisController {
     public String testRedis(@PathVariable("name") String name, @PathVariable("value") String value) {
         redisTemplate.opsForValue().set(name, value);
 
-        return "redis";
+        return value;
     }
 }
