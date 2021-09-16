@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.mapper.EmployeeMapper;
 import com.example.demo.pojo.Employee;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MybatisController {
     @Autowired
+    private SqlSessionTemplate sqlSessionTemplate;
+
+    @Autowired
     private EmployeeMapper deptMapper;
 
     /**
@@ -27,6 +31,7 @@ public class MybatisController {
      */
     @RequestMapping("/list/all")
     public Object listAll() {
+//        sqlSessionTemplate.selectList(toString())
         return deptMapper.list();
     }
 

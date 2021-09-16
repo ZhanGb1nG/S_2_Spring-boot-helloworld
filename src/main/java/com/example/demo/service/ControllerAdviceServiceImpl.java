@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -30,6 +31,7 @@ public class ControllerAdviceServiceImpl {
      * @Date 2021/8/26 9:24
      */
     @ModelAttribute(name = "prices")
+    @Transactional
     public Map<String, Object> setPrice() {
         Map<String, Object> map = new HashMap<>();
         map.put("price", 1000);
